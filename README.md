@@ -4,7 +4,7 @@
 
 # Portfolio_Optimizer_MPT
 
-A Modern Portfolio Theory based portolio optimizer dashboard web app with Streamlit, from a user’s input stock tickers. 
+A Modern Portfolio Theory based portolio optimizer dashboard web app with Streamlit, from a user’s input stock tickers and risk free rate. 
 
 ![image](https://user-images.githubusercontent.com/66699813/202870864-bdad3f34-d9f7-4832-ad44-f3b20f37b6e5.png)
 ![image](https://user-images.githubusercontent.com/66699813/202870875-30fdfe52-42c1-443d-9ebd-ab245f8f3c7f.png)
