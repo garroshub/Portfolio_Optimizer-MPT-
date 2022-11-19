@@ -30,7 +30,7 @@ tickers = tickers_string.split(',')
 
 with col3:
     risk_free_rate = st.number_input('Enter your defined risk free rate \
-                                     WITHOUT PERCENTAGE, e.g. "0.02 for 2%"')
+                                     WITHOUT PERCENTAGE, e.g. "0.02 for 2%"', '0.0382')
 try:
 	# Get Stock Prices using pandas_datareader Library	
 	stocks_df = DataReader(tickers, 'yahoo', start = start_date, end = end_date)['Adj Close']	
