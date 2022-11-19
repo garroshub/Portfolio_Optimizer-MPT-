@@ -16,7 +16,7 @@ def plot_cum_returns(data, title):
 st.set_page_config(page_title = "Garros Stock Portfolio Optimizer", layout = "wide")
 st.header("Garros Stock Portfolio Optimizer")
 
-col1, col2 = st.columns(2)
+col1, col2, col3 = st.columns(3)
 
 with col1:
 	start_date = st.date_input("Start Date",datetime(2013, 1, 1))
@@ -28,6 +28,9 @@ tickers_string = st.text_input('Enter all stock tickers to be included in portfo
 								WITHOUT spaces, e.g. "MA,FB,V,AMZN,JPM,BA"', 'MA,FB,V,AMZN,JPM,BA').upper()
 tickers = tickers_string.split(',')
 
+with col3:
+    risk_free_rate = st.number_input('Enter your defined risk free rate \
+                                     WITHOUT PERCENTAGE, e.g. "0.02 for 2%"')
 try:
 	# Get Stock Prices using pandas_datareader Library	
 	stocks_df = DataReader(tickers, 'yahoo', start = start_date, end = end_date)['Adj Close']	
@@ -45,7 +48,7 @@ try:
 	
 	# Get optimized weights
 	ef = EfficientFrontier(mu, S)
-	ef.max_sharpe(risk_free_rate=0.02)
+	ef.max_sharpe(risk_free_rate)
 	weights = ef.clean_weights()
 	expected_annual_return, annual_volatility, sharpe_ratio = ef.portfolio_performance()
 	weights_df = pd.DataFrame.from_dict(weights, orient = 'index')
